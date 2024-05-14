@@ -2,26 +2,31 @@
 
 // Exporting the functions as named exports
 export function attachInputListeners() {
-    const editableCells = document.querySelectorAll("#dataTable tbody tr td[contenteditable='true']");
-    console.log('Editable cells found:', editableCells.length);
+    const tableBody = document.querySelector("#dataTable tbody");
 
-    editableCells.forEach(cell => {
-        cell.removeEventListener('input', calculateAndUpdate);
-        cell.removeEventListener('focus', handleFocus);
-        cell.removeEventListener('blur', handleBlur);
-
-        cell.addEventListener('input', calculateAndUpdate);
-        cell.addEventListener('focus', handleFocus);
-        cell.addEventListener('blur', handleBlur);
-    });
+    tableBody.addEventListener('input', handleInput);
+    tableBody.addEventListener('focus', handleFocus, true);
+    tableBody.addEventListener('blur', handleBlur, true);
 }
+
+function handleInput(event) {
+    const cell = event.target;
+    if (cell.contentEditable === 'true') {
+        console.log('Input event triggered, recalculating totals...');
+        validateInput(cell);
+        debounceRecalculation();
+    }
+}
+
 
 export function calculateAndUpdate(event) {
     const cell = event.target;
     console.log('Input event triggered, recalculating totals...');
     validateInput(cell);
-    calculateTotals();
+    debounceRecalculation();
 }
+
+
 
 export function handleFocus(event) {
     const cell = event.target;
@@ -31,16 +36,26 @@ export function handleFocus(event) {
     }
 }
 
+let debounceTimeout;
+
+function debounceRecalculation() {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+        calculateTotals();
+    }, 300); // Adjust the delay as needed (in milliseconds)
+}
+
 export function handleBlur(event) {
     const cell = event.target;
     if (cell.textContent.trim() === '') {
         cell.textContent = cell.cellIndex === 0 ? 'Ny Kategori' : '0 kr.';
         cell.style.color = 'gray'; // Placeholder color
-        calculateAndUpdate(event);  // Trigger recalculation when a cell is cleared
+        debounceRecalculation();
     } else {
         formatAndDisplay(cell);
     }
 }
+
 
 export function validateInput(cell) {
     if (cell.cellIndex === 0) {

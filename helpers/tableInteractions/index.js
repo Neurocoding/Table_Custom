@@ -18,8 +18,6 @@ import {
     formatAndDisplay
 } from './cellInteractions.js';
 
-import { createInitialRow } from './initialRow.js';
-
 import { 
     handleKeyboardNavigation,
     navigateRows
@@ -38,7 +36,6 @@ export {
     validateInput,
     resetToLastValid,
     formatAndDisplay,
-    createInitialRow,
     handleKeyboardNavigation,
     navigateRows
 };

@@ -20,7 +20,6 @@ import {
     validateInput,
     resetToLastValid,
     formatAndDisplay,
-    createInitialRow,
     handleKeyboardNavigation,
     navigateRows
 } from './tableInteractions/index.js';
@@ -46,7 +45,6 @@ export {
     validateInput,
     resetToLastValid,
     formatAndDisplay,
-    createInitialRow,
     handleKeyboardNavigation,
     navigateRows,
     formatCurrencyDK,
