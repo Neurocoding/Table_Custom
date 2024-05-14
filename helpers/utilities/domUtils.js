@@ -13,8 +13,12 @@ export function calculateTotals() {
 
     document.getElementById('totalVaerdi').textContent = formatCurrencyDK(totalVaerdi);
     document.getElementById('totalGaeld').textContent = formatCurrencyDK(totalGaeld);
-
-    console.log('Totals recalculated:', totalVaerdi, totalGaeld);
+   
+        const totalDifference = totalVaerdi - totalGaeld;
+    document.getElementById('totalDifference').textContent = formatCurrencyDK(totalDifference);
+    
+    console.log('Totals recalculated:', totalVaerdi, totalGaeld, totalDifference);
+    
 }
 
 export function parseCurrency(input) {

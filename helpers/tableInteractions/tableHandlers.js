@@ -1,24 +1,39 @@
-
-
 let lastRowId = 0;
+
+function updateRowColors() {
+    const rows = document.querySelectorAll("#dataTable tbody tr");
+    rows.forEach((row, index) => {
+        row.style.backgroundColor = index % 2 === 0 ? '#ffffff' : '#F2F2F2';
+    });
+}
+
+function createRowContent() {
+    const cellStyle = "padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;";
+    const valueCellStyle = "padding: 12px; text-align: right; vertical-align: middle; color: gray; border-right: 1px solid #ccc;";
+    const lastCellStyle = "padding: 12px; text-align: right; vertical-align: middle; color: gray;";
+    
+    return `
+    <td contenteditable="true" style="${cellStyle}" data-last-valid="Ny Kategori">Ny Kategori</td>
+    <td contenteditable="true" style="${valueCellStyle}" data-last-valid="0 kr.">0 kr.</td>
+    <td contenteditable="true" style="${lastCellStyle}" data-last-valid="0 kr.">0 kr.</td>`;
+}
+
+function addRow(table, index) {
+    lastRowId++;
+    const newRow = table.insertRow(index);
+    newRow.id = `row-${lastRowId}`;
+    newRow.style.color = '#2f353e';
+    newRow.style.borderBottom = '1px solid #ccc';
+    newRow.innerHTML = createRowContent();
+    calculateTotals();
+    updateRowColors();
+    console.log('Row added:', newRow);
+}
 
 export function addRowButton() {
     console.log('Adding row...');
-    lastRowId++;
     const table = document.querySelector("#dataTable tbody");
-    const newRow = table.insertRow();
-    newRow.id = `row-${lastRowId}`;
-    newRow.style.backgroundColor = lastRowId % 2 === 0 ? '#eaeaea' : '#ffffff'; // Alternate row colors
-    newRow.style.color = '#2f353e';
-    newRow.style.borderBottom = '1px solid #ccc';
-    
-
-    newRow.innerHTML = `
-    <td contenteditable="true" style="padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="Ny Kategori">Ny Kategori</td>
-    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="0 kr.">0 kr.</td>
-    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
-    calculateTotals(); 
-    console.log('Row added:', newRow);
+    addRow(table, table.rows.length);
 }
 
 export function addRowShortcut() {
@@ -26,20 +41,7 @@ export function addRowShortcut() {
     const table = document.querySelector("#dataTable tbody");
     let activeRow = document.activeElement && document.activeElement.tagName === 'TD' ? document.activeElement.parentNode : null;
     let rowIndex = activeRow ? Array.from(table.rows).indexOf(activeRow) + 1 : table.rows.length;  // Insert after the current row or at the end
-
-    lastRowId++;
-    const newRow = table.insertRow(rowIndex);
-    newRow.id = `row-${lastRowId}`;
-    newRow.style.backgroundColor = lastRowId % 2 === 0 ? '#eaeaea' : '#ffffff'; // Alternate row colors
-    newRow.style.color = '#2f353e';
-    newRow.style.borderBottom = '1px solid #ccc';
-
-    newRow.innerHTML = `
-    <td contenteditable="true" style="padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="Ny Kategori">Ny Kategori</td>
-    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="0 kr.">0 kr.</td>
-    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
-    calculateTotals();
-    console.log('Row added via shortcut:', newRow);
+    addRow(table, rowIndex);
 }
 
 export function removeRowButton() {
@@ -48,6 +50,7 @@ export function removeRowButton() {
     if (table.rows.length > 0) {
         table.deleteRow(-1);
         calculateTotals();
+        updateRowColors();
         console.log('Row removed via button');
     } else {
         console.log('No rows left to remove.');
@@ -64,14 +67,14 @@ export function removeRowShortcut() {
         if (rowIndex > -1) {
             table.deleteRow(rowIndex);
             calculateTotals();
+            updateRowColors();
             console.log('Row removed via shortcut');
+
             // Enhanced focus management
             if (table.rows.length > 0) {
                 if (rowIndex < table.rows.length) {
-                    // Focus the row that has taken the place of the removed row
                     table.rows[rowIndex].cells[0].focus();
                 } else {
-                    // Focus the new last row
                     table.rows[table.rows.length - 1].cells[0].focus();
                 }
             } else {

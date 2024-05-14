@@ -9,7 +9,7 @@
 
     <table id="dataTable" style="width: 100%; border-collapse: collapse; border-spacing: 0; border: 1px solid #ccc;">
         <thead>
-            <tr style="background-color: #e0e0e0; color: #333333; border-bottom: 2px solid #ccc;">
+            <tr style="background-color: #e8e8e8; color: #333333; border-bottom: 2px solid #ccc;">
                 <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Kategori</th>
                 <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Værdi</th>
                 <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">Gæld</th>
@@ -19,10 +19,14 @@
             <!-- Rows will be dynamically created by JavaScript -->
         </tbody>
         <tfoot>
-            <tr style="background-color: #e0e0e0; color: #333333; border-top: 2px solid #ccc;">
+            <tr style="background-color: #e8e8e8; color: #333333; border-top: 2px solid #ccc;">
                 <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Total</th>
                 <th id="totalVaerdi" style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">0 kr.</th>
                 <th id="totalGaeld" style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">0 kr.</th>
+            </tr>
+            <tr style="background-color: #e8e8e8; color: #333333; border-top: 2px solid #acacac; border-bottom: 2px solid #acacac;">
+                <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">Formueopgørelse</th>
+                <th colspan="2" id="totalDifference" style="padding: 12px; border-left: 2px solid #acacac; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">0 kr.</th>
             </tr>
         </tfoot>
     </table>
