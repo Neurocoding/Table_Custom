@@ -5,6 +5,7 @@
     "javascript.preferences.importSorter.importSorterConfiguration.importSorterOrder": [
       "non-relative",
       "relative"
-    ]
+    ],
+    "cody.autocomplete.advanced.provider": "unstable-openai"
 }
 

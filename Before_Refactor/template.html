@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Table with Totals</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table id="dataTable">
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Værdi</th>
+      <th>Gæld</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Initial row will be created dynamically by JavaScript -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Total</th>
+      <th id="totalVaerdi">0</th> <!-- Start totals at zero -->
+      <th id="totalGaeld">0</th>
+    </tr>
+  </tfoot>
+</table>
+<script src="script.js"></script>
+<button id="addRowButton" type="button">Add Row</button>
+<button id="removeRowButton" type="button">Remove Row</button>
+
+</body>
+</html>
