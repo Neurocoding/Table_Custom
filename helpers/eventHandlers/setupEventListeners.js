@@ -2,6 +2,7 @@ export function setupEventListeners() {
   const templateContent = document.getElementById('TemplateContent');
   console.log('Template Content:', templateContent);
 
+
   templateContent.addEventListener('click', function(event) {
       const target = event.target;
       console.log('Click event on:', target);

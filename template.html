@@ -6,26 +6,38 @@
     <title>Dynamic Table with Totals</title>
 </head>
 <body>
-    <table id="dataTable">
+
+    <table id="dataTable" style="width: 100%; border-collapse: collapse; border-spacing: 0; border: 1px solid #ccc;">
         <thead>
-            <tr>
-                <th>Kategori</th>
-                <th>Værdi</th>
-                <th>Gæld</th>
+            <tr style="background-color: #e0e0e0; color: #333333; border-bottom: 2px solid #ccc;">
+                <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Kategori</th>
+                <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Værdi</th>
+                <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">Gæld</th>
             </tr>
         </thead>
         <tbody>
             <!-- Rows will be dynamically created by JavaScript -->
         </tbody>
         <tfoot>
-            <tr>
-                <th>Total</th>
-                <th id="totalVaerdi">0 kr.</th>
-                <th id="totalGaeld">0 kr.</th>
+            <tr style="background-color: #e0e0e0; color: #333333; border-top: 2px solid #ccc;">
+                <th style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">Total</th>
+                <th id="totalVaerdi" style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px; border-right: 1px solid #ccc;">0 kr.</th>
+                <th id="totalGaeld" style="padding: 12px; text-align: center; vertical-align: middle; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; line-height: 26px;">0 kr.</th>
             </tr>
         </tfoot>
     </table>
-    <button id="addRowButton" type="button">Add Row</button>
-    <button id="removeRowButton" type="button">Remove Row</button>
+    
+
+
+    <p>
+    <div id="button">
+        <div id="button">
+            <button id="addRowButton" type="button">Add Row</button>
+            <button id="removeRowButton" type="button" class="remove">Remove Row</button>
+        </div>
+        
+
+    </div>
+</p>
 </body>
 </html>

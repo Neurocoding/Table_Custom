@@ -8,10 +8,15 @@ export function addRowButton() {
     const table = document.querySelector("#dataTable tbody");
     const newRow = table.insertRow();
     newRow.id = `row-${lastRowId}`;
+    newRow.style.backgroundColor = lastRowId % 2 === 0 ? '#eaeaea' : '#ffffff'; // Alternate row colors
+    newRow.style.color = '#2f353e';
+    newRow.style.borderBottom = '1px solid #ccc';
+    
+
     newRow.innerHTML = `
-    <td contenteditable="true" style="color: gray;" data-last-valid="Ny Kategori">Ny Kategori</td>
-    <td contenteditable="true" style="color: gray;" data-last-valid="0 kr.">0 kr.</td>
-    <td contenteditable="true" style="color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
+    <td contenteditable="true" style="padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="Ny Kategori">Ny Kategori</td>
+    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="0 kr.">0 kr.</td>
+    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
     calculateTotals(); 
     console.log('Row added:', newRow);
 }
@@ -25,10 +30,14 @@ export function addRowShortcut() {
     lastRowId++;
     const newRow = table.insertRow(rowIndex);
     newRow.id = `row-${lastRowId}`;
+    newRow.style.backgroundColor = lastRowId % 2 === 0 ? '#eaeaea' : '#ffffff'; // Alternate row colors
+    newRow.style.color = '#2f353e';
+    newRow.style.borderBottom = '1px solid #ccc';
+
     newRow.innerHTML = `
-    <td contenteditable="true" style="color: gray;" data-last-valid="Ny Kategori">Ny Kategori</td>
-    <td contenteditable="true" style="color: gray;" data-last-valid="0 kr.">0 kr.</td>
-    <td contenteditable="true" style="color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
+    <td contenteditable="true" style="padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="Ny Kategori">Ny Kategori</td>
+    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray; border-right: 1px solid #ccc;" data-last-valid="0 kr.">0 kr.</td>
+    <td contenteditable="true" style="padding: 12px; text-align: right; vertical-align: middle; color: gray;" data-last-valid="0 kr.">0 kr.</td>`;
     calculateTotals();
     console.log('Row added via shortcut:', newRow);
 }
