@@ -71,6 +71,5 @@ export function removeRowShortcut() {
         }
     } else {
         console.log('No valid row selected or no rows to remove.');
-        alert("Cannot remove the selected row or no rows left to remove.");
     }
 }

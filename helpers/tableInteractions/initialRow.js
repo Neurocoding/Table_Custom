@@ -1,5 +1,3 @@
-
-
 export function createInitialRow() {
     const table = document.querySelector("#dataTable tbody");
     const row = table.insertRow(0);  // Insert at the first position

@@ -1,7 +1,3 @@
-
-
-
-
 export function calculateTotals() {
     const table = document.querySelector("#dataTable tbody");
     let totalVaerdi = 0;

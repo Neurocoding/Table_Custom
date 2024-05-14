@@ -1,6 +1,3 @@
-
-
-
 export function handleKeyboardNavigation(event) {
     console.log('Key pressed:', event.key, 'Shift:', event.shiftKey, 'Ctrl:', event.ctrlKey);  // Debug to show which key and modifiers are pressed
 
@@ -14,7 +11,7 @@ export function handleKeyboardNavigation(event) {
                 break;
             case 'Delete':
                 console.log('Shift+Delete pressed - Removing row');
-                tableHandlers.removeRowShortcut();
+                removeRowShortcut();
                 event.preventDefault(); // Prevent default delete behavior
                 break;
         }
@@ -44,7 +41,7 @@ export function handleKeyboardNavigation(event) {
                 break;
             case 'Insert':
                 console.log('Insert key pressed - Adding row');
-                tableHandlers.addRowShortcut();
+                addRowShortcut();
                 break;
         }
     }
