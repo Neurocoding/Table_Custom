@@ -1,0 +1,10 @@
+{ 
+    "liveServer.settings.port": 5501,
+    "javascript.preferences.importModuleSpecifierEnding": "minimal",
+    "javascript.preferences.importModuleSpecifierPreference": "non-relative",
+    "javascript.preferences.importSorter.importSorterConfiguration.importSorterOrder": [
+      "non-relative",
+      "relative"
+    ]
+}
+
