@@ -1,8 +1,4 @@
 // Index.js for eventHandlers
-
-// Import functions
-import { setupEventListeners } from './setupEventListeners.js';
-import { setupMutationObserver } from './mutationObserverSetup.js';
-
-// Export all functions individually
-export { setupEventListeners, setupMutationObserver };
+// Export eventhandler functions as named defaults
+export { default as setupEventListeners } from "./setupEventListeners.js";
+export { default as setupMutationObserver } from "./mutationObserverSetup.js";

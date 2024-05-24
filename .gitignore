@@ -40,3 +40,6 @@ build/
 # Miscellaneous
 .hintrc
 Before_Refactor/
+
+# backup
+.bak
