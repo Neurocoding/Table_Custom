@@ -34,7 +34,7 @@ To use the dynamic table in your project, follow these steps:
 - `index.html`: The main HTML file that loads the necessary CSS and JavaScript files.
 - `style.css`: The CSS file that defines the styles for the table and buttons.
 - `script.js`: The main JavaScript file that sets up event listeners, fetches the table template, and initializes the table.
-- `template.html`: The HTML template file that defines the structure of the table.
+- `tableTemplate.html`: The HTML template file that defines the structure of the table.
 - `helpers/`: Directory containing helper functions used in the table implementation.
 - `eventHandlers/`: Functions for setting up event listeners and mutation observers.
 - `tableInteractions/`: Functions for handling table-related actions.

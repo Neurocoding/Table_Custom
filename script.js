@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const templateContent = document.getElementById("TemplateContent");
 
-    fetch("template.html")
+    fetch("tableTemplate.html")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
