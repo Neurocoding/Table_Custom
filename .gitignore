@@ -43,3 +43,6 @@ Before_Refactor/
 
 # backup
 .bak
+
+#projectstructure
+.projectstructure.md
