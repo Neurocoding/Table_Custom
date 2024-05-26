@@ -2,7 +2,7 @@
  * Creates the HTML content for a new row.
  * @returns {string} The HTML string for a new row.
  */
-export default function createRowContent() {
+export function createRowContent() {
   const cellStyle =
     "padding: 12px; text-align: left; vertical-align: middle; color: gray; border-right: 1px solid #ccc;";
   const valueCellStyle =

@@ -3,7 +3,7 @@
  *
 //  * @param {Function} callback - The function to call when mutations are observed.
  */
-export default function setupMutationObserver(callback) {
+export function setupMutationObserver(callback) {
   const TARGET_NODE_ID = "TemplateContent"; // ID of the DOM element to observe
   const OBSERVER_CONFIG = { childList: true, subtree: true }; // Observer configuration
 

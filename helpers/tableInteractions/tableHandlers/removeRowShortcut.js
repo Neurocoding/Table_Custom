@@ -1,10 +1,10 @@
-import updateRowColors from "./updateRowColors.js";
-import calculateTotals from "./calculateTotals.js";
+import { updateRowColors } from "./updateRowColors.js";
+import { calculateTotals } from "../../utilities/calculateTotals.js";
 
 /**
  * Removes the selected row using a keyboard shortcut.
  */
-export default function removeRowShortcut() {
+export function removeRowShortcut() {
   try {
     console.log("Removing row via shortcut...");
     const table = document.querySelector("#dataTable tbody");

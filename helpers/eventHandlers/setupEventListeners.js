@@ -1,10 +1,10 @@
 import {
   addRowButton,
   removeRowButton,
-} from "../tableInteractions/tableHandlers.js";
-import { handleKeyboardNavigation } from "../tableInteractions/keyboardNavigation.js";
+} from "../tableInteractions/tableHandlers/index.js";
+import { handleKeyboardNavigation } from "../tableInteractions/keyboardNavigation/index.js";
 
-export default function setupEventListeners() {
+export function setupEventListeners() {
   const templateContent = document.getElementById("TemplateContent");
   console.log("Template Content:", templateContent);
 

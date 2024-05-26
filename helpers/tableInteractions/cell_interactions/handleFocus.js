@@ -2,7 +2,7 @@
  * Handles focus events on the table cells.
  * @param {Event} event - The focus event.
  */
-export default function handleFocus(event) {
+export function handleFocus(event) {
   const cell = event.target;
   if (
     cell.textContent === "Enter value" ||

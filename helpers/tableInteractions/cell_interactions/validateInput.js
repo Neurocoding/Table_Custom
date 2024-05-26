@@ -1,10 +1,10 @@
-import resetToLastValid from "./resetToLastValid.js";
+import { resetToLastValid } from "./resetToLastValid.js";
 
 /**
  * Validates the input in a table cell.
  * @param {HTMLElement} cell - The table cell element.
  */
-export default function validateInput(cell) {
+export function validateInput(cell) {
   if (cell.cellIndex === 0) {
     // For 'Kategori' column, simply manage placeholders.
     cell.dataset.lastValid = cell.textContent.trim() || "Ny Kategori";

@@ -1,41 +1,41 @@
-import {
-  setupEventListeners,
-  setupMutationObserver,
-  tableHandlers,
-  cellinteractions,
-} from "./helpers/index.js";
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   console.log(
     "Document ready. Setting up event listeners and mutation observer."
   );
 
-  // Initialize the handlers
-  const tableInstance = tableHandlers();
-  const cellInstance = cellinteractions();
+  try {
+    // Dynamically import the helpers module
+    const Helpers = await import("./helpers/index.js");
 
-  // Set up event listeners
-  setupEventListeners();
-  setupMutationObserver();
+    // Initialize the handlers
+    Helpers.addRowButton();
+    Helpers.removeRowButton();
 
-  const templateContent = document.getElementById("TemplateContent");
+    // Set up event listeners
+    Helpers.setupEventListeners();
+    Helpers.setupMutationObserver();
 
-  fetch("template.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      templateContent.innerHTML = html;
-      return html; // Pass the HTML along to ensure it's fully loaded
-    })
-    .then(() => {
-      cellInstance.attachInputListeners(); // Now attach listeners
-    })
-    .catch((error) => {
-      console.error("Failed to load template:", error);
-      templateContent.innerHTML = "<p>Error loading the content!</p>";
-    });
+    const templateContent = document.getElementById("TemplateContent");
+
+    fetch("template.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((html) => {
+        templateContent.innerHTML = html;
+        return html; // Pass the HTML along to ensure it's fully loaded
+      })
+      .then(() => {
+        Helpers.attachInputListeners(); // Now attach listeners
+      })
+      .catch((error) => {
+        console.error("Failed to load template:", error);
+        templateContent.innerHTML = "<p>Error loading the content!</p>";
+      });
+  } catch (error) {
+    console.error("Failed to load helpers:", error);
+  }
 });

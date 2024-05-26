@@ -1,4 +1,4 @@
-export default function handleKeyboardNavigation(event) {
+export function handleKeyboardNavigation(event) {
   console.log(
     "Key pressed:",
     event.key,

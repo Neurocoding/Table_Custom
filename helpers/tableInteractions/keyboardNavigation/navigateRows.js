@@ -1,4 +1,4 @@
-export default function navigateRows(direction) {
+export function navigateRows(direction) {
   let activeElement = document.activeElement;
   if (
     !activeElement ||

@@ -1,4 +1,5 @@
-// Index.js for utilities
+import { calculateTotals } from "./calculateTotals.js";
+import { parseCurrency } from "./parseCurrency.js";
+import { formatCurrencyDK } from "./formatCurrencyDK.js";
 
-export { default as calcFormat } from "./domUtils.js";
-export { default as formatCurrencyDK } from "./formatCurrencyDK.js";
+export { calculateTotals, parseCurrency, formatCurrencyDK };

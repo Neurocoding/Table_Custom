@@ -1,10 +1,10 @@
-import updateRowColors from "./updateRowColors.js";
-import calculateTotals from "./calculateTotals.js";
+import { updateRowColors } from "./updateRowColors.js";
+import { calculateTotals } from "../../utilities/calculateTotals.js";
 
 /**
  * Removes the last row from the table when the button is clicked.
  */
-export default function removeRowButton() {
+export function removeRowButton() {
   try {
     console.log("Removing row via button...");
     const table = document.querySelector("#dataTable tbody");

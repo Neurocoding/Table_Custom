@@ -1,11 +1,11 @@
-import calculateTotals from "./calculateTotals.js";
+import { calculateTotals } from "../../utilities/calculateTotals.js";
 
 let debounceTimeout;
 
 /**
  * Debounces the recalculation of totals.
  */
-export default function debounceRecalculation() {
+export function debounceRecalculation() {
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(() => {
     calculateTotals();

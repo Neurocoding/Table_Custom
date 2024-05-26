@@ -1,5 +1,9 @@
-// helpers/index.js  - export for all helpers
+import * as utilities from "./utilities/index.js";
+import * as eventHandlers from "./eventHandlers/index.js";
+import * as tableInteractions from "./tableInteractions/index.js";
 
-export * from "./utilities/index.js";
-export * from "./eventHandlers/index.js";
-export * from "./tableInteractions/index.js";
+export default {
+  ...utilities,
+  ...eventHandlers,
+  ...tableInteractions,
+};

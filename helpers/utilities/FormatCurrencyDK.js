@@ -1,4 +1,4 @@
-export default function formatCurrencyDK(value) {
+export function formatCurrencyDK(value) {
   // Check if the input is a valid number
   if (isNaN(value)) {
     return "Invalid input";

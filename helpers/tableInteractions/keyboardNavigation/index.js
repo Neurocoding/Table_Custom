@@ -1,11 +1,6 @@
-//  helpers/tableInteractions/keyboardNavigation/index.js
+// helpers/tableInteractions/keyboardNavigation/index.js
 
-import handleKeyboardNavigation from "./handleKeyboardNavigation";
-import navigateRows from "./navigateRows";
+import { handleKeyboardNavigation } from "./handleKeyboardNavigation.js";
+import { navigateRows } from "./navigateRows.js";
 
-export default function keyboardNavigation() {
-  return {
-    handleKeyboardNavigation,
-    navigateRows,
-  };
-}
+export { handleKeyboardNavigation, navigateRows };

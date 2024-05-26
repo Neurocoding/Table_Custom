@@ -1,9 +1,9 @@
-import addRow from "./addRow.js";
+import { addRow } from "./addRow.js";
 
 /**
  * Adds a new row when the button is clicked.
  */
-export default function addRowButton() {
+export function addRowButton() {
   try {
     console.log("Adding row...");
     const table = document.querySelector("#dataTable tbody");

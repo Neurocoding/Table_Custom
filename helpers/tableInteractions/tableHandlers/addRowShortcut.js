@@ -1,9 +1,9 @@
-import addRow from "./addRow.js";
+import { addRow } from "./addRow.js";
 
 /**
  * Adds a new row using a keyboard shortcut.
  */
-export default function addRowShortcut() {
+export function addRowShortcut() {
   try {
     console.log("Adding row via shortcut...");
     const table = document.querySelector("#dataTable tbody");

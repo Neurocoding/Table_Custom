@@ -1,10 +1,10 @@
-import formatCurrencyDK from "./formatCurrencyDK.js";
+import { formatCurrencyDK } from "../../utilities/formatCurrencyDK.js";
 
 /**
  * Formats and displays the cell content.
  * @param {HTMLElement} cell - The table cell element.
  */
-export default function formatAndDisplay(cell) {
+export function formatAndDisplay(cell) {
   if (cell.cellIndex > 0 && cell.dataset.lastValid) {
     let formattedValue = formatCurrencyDK(parseFloat(cell.dataset.lastValid));
     cell.textContent = formattedValue;
