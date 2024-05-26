@@ -21,24 +21,13 @@ To use the dynamic table in your project, follow these steps:
 
    git clone https://github.com/your-username/dynamic-table.git
 
-2. Open the `index.html` file in your web browser.
+2. Open the `main.html` with liveserver or similar.
 
 3. Start interacting with the table:
    - Click on cells to edit their values
    - Use the "Add Row" and "Remove Row" buttons to manipulate rows
    - Navigate through cells and rows using arrow keys
    - Use the "Insert" key to add a new row and "Shift+Delete" to remove the current row
-
-## File Structure
-
-- `index.html`: The main HTML file that loads the necessary CSS and JavaScript files.
-- `style.css`: The CSS file that defines the styles for the table and buttons.
-- `script.js`: The main JavaScript file that sets up event listeners, fetches the table template, and initializes the table.
-- `tableTemplate.html`: The HTML template file that defines the structure of the table.
-- `helpers/`: Directory containing helper functions used in the table implementation.
-- `eventHandlers/`: Functions for setting up event listeners and mutation observers.
-- `tableInteractions/`: Functions for handling table-related actions.
-- `utilities/`: Utility functions for formatting, calculation, and parsing.
 
 ## Dependencies
 

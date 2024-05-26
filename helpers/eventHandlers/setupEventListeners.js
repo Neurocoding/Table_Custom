@@ -1,41 +1,14 @@
 // setupEventListeners.js
 
-import {
-  keyboardNavigation,
-  tableHandlers,
-} from "../tableInteractions/index.js";
 import { setupMutationObserver } from "./mutationObserverSetup.js";
-import { calculateTotals } from "../utilities/calculateTotals.js";
+import { tableInteractions } from "../index.js";
 
 /**
  * Callback function for MutationObserver to handle DOM changes.
  */
 function onDomChange() {
   console.log("DOM has changed, setting up event listeners.");
-  setupEventListeners(); // Re-setup event listeners if needed
-  calculateTotals(); // Recalculate totals after DOM changes
-}
-
-/**
- * Debounce function to limit the rate at which a function can fire.
- * @param {Function} func - The function to debounce.
- * @param {number} wait - The number of milliseconds to wait.
- * @param {boolean} immediate - Whether to trigger the function on the leading edge.
- * @returns {Function} - The debounced function.
- */
-function debounce(func, wait, immediate) {
-  let timeout;
-  return function (...args) {
-    const context = this;
-    const later = function () {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
+  setupEventListeners();
 }
 
 /**
@@ -54,7 +27,7 @@ export function setupEventListeners() {
   // Add event listeners
   addEventListeners(templateContent);
 
-  console.log("Keyboard navigation and event delegation setup.");
+  console.log("Event listeners setup complete.");
 }
 
 /**
@@ -63,32 +36,20 @@ export function setupEventListeners() {
  */
 function addEventListeners(element) {
   element.addEventListener("click", handleTemplateContentClick);
+  element.addEventListener("input", handleInput);
+  tableInteractions.cell_interactions.attachInputListeners();
   document.addEventListener(
     "keydown",
-    keyboardNavigation.handleKeyboardNavigation
+    tableInteractions.keyboardNavigation.handleKeyboardNavigation
   );
-  element.addEventListener("input", calculateTotals);
-}
-
-/**
- * Removes event listeners from the specified element.
- * @param {Element} element - The element from which event listeners will be removed.
- */
-function removeEventListeners(element) {
-  element.removeEventListener("click", handleTemplateContentClick);
-  document.removeEventListener(
-    "keydown",
-    keyboardNavigation.handleKeyboardNavigation
-  );
-  // Note: Do not remove input event listener for table calculations to ensure it remains functional
 }
 
 /**
  * Event handler configuration object.
  */
 const eventHandlerConfig = {
-  addRowButton: tableHandlers.addRowButton,
-  removeRowButton: tableHandlers.removeRowButton,
+  addRowButton: tableInteractions.tableHandlers.addRowButton,
+  removeRowButton: tableInteractions.tableHandlers.removeRowButton,
 };
 
 /**
@@ -106,6 +67,14 @@ function handleTemplateContentClick(event) {
   } else {
     console.warn("Unhandled click event on:", target);
   }
+}
+
+/**
+ * Handles input events on the template content.
+ * @param {Event} event - The input event.
+ */
+function handleInput(event) {
+  tableInteractions.cell_interactions.calculateAndUpdate(event);
 }
 
 // Initialize MutationObserver with the callback

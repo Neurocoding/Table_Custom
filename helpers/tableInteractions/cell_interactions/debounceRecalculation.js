@@ -1,4 +1,4 @@
-import { calculateTotals } from "../../utilities/calculateTotals.js";
+import { utilities } from "../../index.js";
 
 let debounceTimeout;
 
@@ -8,6 +8,6 @@ let debounceTimeout;
 export function debounceRecalculation() {
   clearTimeout(debounceTimeout);
   debounceTimeout = setTimeout(() => {
-    calculateTotals();
+    utilities.calculateTotals();
   }, 300); // Adjust the delay as needed (in milliseconds)
 }
