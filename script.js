@@ -1,3 +1,4 @@
+//script.js
 document.addEventListener("DOMContentLoaded", async () => {
   console.log(
     "Document ready. Setting up event listeners and mutation observer."
@@ -5,15 +6,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Dynamically import the helpers module
-    const Helpers = await import("./helpers/index.js");
+    const { utilities, eventHandlers, tableInteractions } = await import(
+      "./helpers/index.js"
+    );
+    console.log("Utilities:", utilities);
+    console.log("Event Handlers:", eventHandlers);
+    console.log("Table Interactions:", tableInteractions);
 
     // Initialize the handlers
-    Helpers.addRowButton();
-    Helpers.removeRowButton();
+    tableInteractions.tableHandlers.addRowButton();
+    tableInteractions.tableHandlers.removeRowButton();
 
     // Set up event listeners
-    Helpers.setupEventListeners();
-    Helpers.setupMutationObserver();
+    eventHandlers.setupEventListeners();
+    eventHandlers.setupMutationObserver();
 
     const templateContent = document.getElementById("TemplateContent");
 
@@ -29,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return html; // Pass the HTML along to ensure it's fully loaded
       })
       .then(() => {
-        Helpers.attachInputListeners(); // Now attach listeners
+        tableInteractions.cell_interactions.attachInputListeners(); // Now attach listeners
       })
       .catch((error) => {
         console.error("Failed to load template:", error);

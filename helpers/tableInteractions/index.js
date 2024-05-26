@@ -1,41 +1,7 @@
-// Index.js for tableInteractions
+// Index.js for all tableInteractions
 
-// Import functions directly
-import {
-  addRowButton,
-  addRowShortcut,
-  removeRowButton,
-  removeRowShortcut,
-} from "./tableHandlers/index.js";
+import * as keyboardNavigation from "./keyboardNavigation/index.js";
+import * as tableHandlers from "./tableHandlers/index.js";
+import * as cell_interactions from "./cell_interactions/index.js";
 
-import {
-  attachInputListeners,
-  calculateAndUpdate,
-  handleFocus,
-  handleBlur,
-  validateInput,
-  resetToLastValid,
-  formatAndDisplay,
-} from "./cell_interactions/index.js";
-
-import {
-  handleKeyboardNavigation,
-  navigateRows,
-} from "./keyboardNavigation/index.js";
-
-// Export all functions individually
-export {
-  addRowButton,
-  addRowShortcut,
-  removeRowButton,
-  removeRowShortcut,
-  attachInputListeners,
-  calculateAndUpdate,
-  handleFocus,
-  handleBlur,
-  validateInput,
-  resetToLastValid,
-  formatAndDisplay,
-  handleKeyboardNavigation,
-  navigateRows,
-};
+export { keyboardNavigation, tableHandlers, cell_interactions };

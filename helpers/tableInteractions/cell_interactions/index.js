@@ -1,3 +1,4 @@
+// Index.js for cell_interactions
 import { attachInputListeners } from "./attachInputListeners.js";
 import { calculateAndUpdate } from "./calculateAndUpdate.js";
 import { handleFocus } from "./handleFocus.js";

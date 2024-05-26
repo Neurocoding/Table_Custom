@@ -1,3 +1,4 @@
+// addRowButton.js
 import { addRow } from "./addRow.js";
 
 /**
@@ -5,8 +6,14 @@ import { addRow } from "./addRow.js";
  */
 export function addRowButton() {
   try {
-    console.log("Adding row...");
     const table = document.querySelector("#dataTable tbody");
+
+    // Return early if the table element is not found
+    if (!table) {
+      return;
+    }
+
+    console.log("Adding row...");
     addRow(table, table.rows.length);
   } catch (error) {
     console.error("Error in addRowButton:", error);

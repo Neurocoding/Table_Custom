@@ -1,3 +1,7 @@
+// handleKeyboardNavigation.js
+import { navigateRows } from "./navigateRows.js";
+import { addRowShortcut, removeRowShortcut } from "../tableHandlers/index.js";
+
 export function handleKeyboardNavigation(event) {
   console.log(
     "Key pressed:",
@@ -14,19 +18,19 @@ export function handleKeyboardNavigation(event) {
   if (event.shiftKey) {
     switch (event.key) {
       case "Enter":
-        // Retain default behavior when Shift+Enter
+        // Retain standard behavior when Shift+Enter
         break;
       case "Delete":
         console.log("Shift+Delete pressed - Removing row");
         removeRowShortcut();
-        event.preventDefault(); // Prevent default delete behavior
+        event.preventDefault(); // Prevent standard delete behavior
         break;
     }
   } else {
     switch (event.key) {
       case "Enter":
         navigateRows("right");
-        event.preventDefault(); // Prevent default enter behavior
+        event.preventDefault(); // Prevent standard enter behavior
         break;
       case "Delete":
         if (

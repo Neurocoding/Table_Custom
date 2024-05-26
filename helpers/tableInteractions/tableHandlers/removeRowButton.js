@@ -1,18 +1,21 @@
-import { updateRowColors } from "./updateRowColors.js";
-import { calculateTotals } from "../../utilities/calculateTotals.js";
+// removeRowButton.js
+import { removeRow } from "./removeRow.js";
 
 /**
  * Removes the last row from the table when the button is clicked.
  */
 export function removeRowButton() {
   try {
-    console.log("Removing row via button...");
     const table = document.querySelector("#dataTable tbody");
+
+    // Return early if the table element is not found
+    if (!table) {
+      return;
+    }
+
     if (table.rows.length > 0) {
-      table.deleteRow(-1);
-      calculateTotals();
-      updateRowColors();
-      console.log("Row removed via button");
+      console.log("Removing row via button...");
+      removeRow(table, table.rows.length - 1);
     } else {
       console.log("No rows left to remove.");
     }

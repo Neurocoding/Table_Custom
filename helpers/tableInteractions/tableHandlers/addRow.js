@@ -2,7 +2,7 @@ import { updateRowColors } from "./updateRowColors.js";
 import { createRowContent } from "./createRowContent.js";
 import { calculateTotals } from "../../utilities/calculateTotals.js";
 
-let lastRowId = 0; // Ensure this is defined
+let lastRowId = 0; // Used to generate unique row IDs.
 
 /**
  * Adds a new row to the specified table at the given index.
