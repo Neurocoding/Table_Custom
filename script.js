@@ -1,4 +1,6 @@
-//script.js
+// script.js
+import { setupMutationObserver } from "./helpers/eventHandlers/mutationObserverSetup.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
   console.log(
     "Document ready. Setting up event listeners and mutation observer."
@@ -19,7 +21,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Set up event listeners
     eventHandlers.setupEventListeners();
-    eventHandlers.setupMutationObserver();
+
+    // Define a callback function for the mutation observer
+    function myCallback() {
+      console.log("DOM mutation observed!");
+      // Additional logic to handle the mutation can be added here
+    }
+
+    // Set up the mutation observer with the callback function
+    eventHandlers.setupMutationObserver(myCallback);
 
     const templateContent = document.getElementById("TemplateContent");
 
@@ -33,15 +43,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       .then((html) => {
         templateContent.innerHTML = html;
         return html; // Pass the HTML along to ensure it's fully loaded
-      })
-      .then(() => {
-        tableInteractions.cell_interactions.attachInputListeners(); // Now attach listeners
-      })
-      .catch((error) => {
-        console.error("Failed to load template:", error);
-        templateContent.innerHTML = "<p>Error loading the content!</p>";
       });
   } catch (error) {
-    console.error("Failed to load helpers:", error);
+    console.error(
+      "Error setting up event listeners and mutation observer:",
+      error
+    );
   }
 });

@@ -6,6 +6,12 @@
  * @param {function} callback - The function to call when mutations are observed.
  */
 export function setupMutationObserver(callback) {
+  console.log("Callback parameter:", callback); // Log the callback parameter
+
+  if (typeof callback !== "function") {
+    throw new TypeError("callback is not a function");
+  }
+
   const TARGET_NODE_ID = "TemplateContent"; // ID of the DOM element to observe
   const OBSERVER_CONFIG = { childList: true, subtree: true }; // Observer configuration
 
