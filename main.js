@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Dynamically import the helpers module
     const { utilities, eventHandlers, tableInteractions } = await import(
-      "./helpers/index.js"
+      "./helpers/Table_Helpers/index.js"
     );
     console.log(
       "Successfully imported utilities, event handlers, and table interactions."
