@@ -17,13 +17,7 @@ This repository contains a custom implementation of a dynamic table with the abi
 
 To use the dynamic table in your project, follow these steps:
 
-1. Clone the repository:
-
-   git clone https://github.com/your-username/dynamic-table.git
-
-2. Open the `main.html` with liveserver or similar.
-
-3. Start interacting with the table:
+1. Start interacting with the table:
    - Click on cells to edit their values
    - Use the "Add Row" and "Remove Row" buttons to manipulate rows
    - Navigate through cells and rows using arrow keys
